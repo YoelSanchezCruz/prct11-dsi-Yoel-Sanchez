@@ -10,7 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
+  services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+
+  steps:
       - name: Cloning repo
         uses: actions/checkout@v6
       - name: Use Node.js 25.x
